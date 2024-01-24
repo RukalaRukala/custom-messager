@@ -1,0 +1,72 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit([nameInput.value, loginInput.value, passwordInput.value])"
+  [ngClass]="{ darkTheme: localStorage['theme'] }"
+  class="login-wrap d-flex flex-column mx-auto mt-5 px-4 py-4">
+  <h2 class="fs-4 fw-bold">Registration</h2>
+  <div class="mb-0">
+    <label for="nameInput" class="form-label mb-0 px-2">name</label>
+    <input
+      #nameInput
+      id="nameInput"
+      type="text"
+      class="form-control"
+      formControlName="name" />
+    <div
+      *ngIf="name!.invalid && (name!.touched || name!.dirty)"
+      class="validation">
+      <div *ngIf="name!.errors?.['required']">Please enter your name</div>
+      <div *ngIf="name!.errors?.['maxlength']">maximum 40 characters</div>
+      <div *ngIf="name!.errors?.['pattern']">only letters and spaces</div>
+    </div>
+  </div>
+  <div class="mb-0">
+    <label for="loginInput" class="form-label mb-0 px-2">login</label>
+    <input
+      #loginInput
+      id="loginInput"
+      type="text"
+      class="form-control"
+      formControlName="login" />
+    <div
+      *ngIf="login!.invalid && (login!.touched || login!.dirty)"
+      class="validation">
+      <div *ngIf="login!.errors?.['required']">Please enter a login email</div>
+      <div *ngIf="login!.errors?.['email']">The login email is invalid</div>
+      <div *ngIf="login!.errors?.['existedEmail']">
+        You have already entered this email. It exists. Please enter another one
+      </div>
+    </div>
+  </div>
+  <div class="mb-0">
+    <label for="passwordInput" class="form-label mb-0 px-2">password</label>
+    <input
+      #passwordInput
+      formControlName="password"
+      type="password"
+      class="form-control"
+      id="passwordInput" />
+    <div
+      *ngIf="password!.invalid && (password!.touched || password!.dirty)"
+      class="validation">
+      <div *ngIf="password!.errors?.['required']">Please enter a password</div>
+      <div *ngIf="password!.errors?.['minlength']">at least 8 characters</div>
+      <div *ngIf="password!.errors?.['lettersDigits']">
+        a mixture of letters and numbers
+      </div>
+      <div *ngIf="password!.errors?.['upperLower']">
+        a mixture of both uppercase and lowercase letters
+      </div>
+      <div *ngIf="password!.errors?.['specSymbols']">
+        inclusion of at least one special character, e.g., ! @ # ? ]
+      </div>
+    </div>
+  </div>
+  <button
+    class="btn btn-primary mx-auto mt-3 float-end"
+    type="submit"
+    [disabled]="disable">
+    SignUp
+  </button>
+  <a class="mx-auto mt-1" routerLink="/signin">Sign In</a>
+</form>

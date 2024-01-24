@@ -1,0 +1,46 @@
+@import "../../../../variables";
+
+/* Styles */
+
+.oval {
+  position: relative;
+  margin: 10px;
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: #0275d8;
+  transition: background-color $transitionTime $transitionStyle;
+}
+
+.ovalSelected {
+  background: #fadc04;
+}
+
+.bi-brightness-high-fill {
+  margin-left: 3px;
+  color: black;
+}
+
+.bi-moon-stars-fill {
+  right: 0;
+  margin-right: 5px;
+  color: #f7f7f7;
+}
+
+.button {
+  position: absolute;
+  margin-top: 3px;
+  margin-left: 3px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $buttonColour;
+  transition: left $transitionTime $transitionStyle, background-color $transitionTime $transitionStyle;
+  z-index: 5;
+}
+
+.buttonSelected {
+  left: 25px;
+  background-color: darken($color: $buttonColour, $amount: 40%);
+}

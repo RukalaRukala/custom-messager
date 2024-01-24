@@ -1,0 +1,18 @@
+export const environment = {
+  production: true,
+  regUrl: `https://tasks.app.rs.school/angular/registration`,
+  logUrl: `https://tasks.app.rs.school/angular/login`,
+  profileUrl: `https://tasks.app.rs.school/angular/profile`,
+  logoutUrl: `https://tasks.app.rs.school/angular/logout`,
+  groupListUrl: `https://tasks.app.rs.school/angular/groups/list`,
+  groupCreateUrl: `https://tasks.app.rs.school/angular/groups/create`,
+  groupDeleteUrl: `https://tasks.app.rs.school/angular/groups/delete`,
+  groupReadUrl: `https://tasks.app.rs.school/angular/groups/read`,
+  groupAppendUrl: `https://tasks.app.rs.school/angular/groups/append`,
+  usersUrl: `https://tasks.app.rs.school/angular/users`,
+  convListUrl: `https://tasks.app.rs.school/angular/conversations/list`,
+  convCreateUrl: `https://tasks.app.rs.school/angular/conversations/create`,
+  convReadUrl: `https://tasks.app.rs.school/angular/conversations/read`,
+  convDeleteUrl: `https://tasks.app.rs.school/angular/conversations/delete`,
+  convAppendUrl: `https://tasks.app.rs.school/angular/conversations/append`,
+};

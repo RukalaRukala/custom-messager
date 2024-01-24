@@ -1,0 +1,79 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="head d-flex align-items-center">
+    <a routerLink="/chat">
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        placement="top"
+        ngbTooltip="Back home">
+        <i class="bi bi-box-arrow-left text-primary"></i>
+      </button>
+    </a>
+    <h1 class="ms-3">
+      Group-chat
+      <strong class="text-primary text-decoration-underline">{{
+        group.name.S
+      }}</strong>
+    </h1>
+    <button
+      (click)="updateChat(group)"
+      type="button"
+      class="btn btn-outline-secondary"
+      placement="top"
+      ngbTooltip="Update chat"
+      [disabled]="localStorage['groupConversationUpdate']">
+      <i
+        class="bi bi-arrow-clockwise ms-3"
+        [ngClass]="{ disable: localStorage['groupConversationUpdate'] }"
+        role="button"></i>
+    </button>
+    <div *ngIf="localStorage['groupConversationUpdate']">
+      {{ queryService.timers.groupConversationTimer }}
+    </div>
+    <button
+      *ngIf="group.createdBy.S === localStorage['uid']"
+      (click)="openDeleteModal(group)"
+      type="button"
+      class="btn btn-outline-secondary"
+      placement="top"
+      ngbTooltip="Delete conversation">
+      <i class="bi bi-x-lg ms-2" role="button"></i>
+    </button>
+  </div>
+  <div
+    ngbScrollSpy
+    #spy="ngbScrollSpy"
+    class="chat p-3 rounded-2 mb-3 mt-3"
+    style="height: 400px; width: 900px"
+    [ngClass]="{ dark: localStorage['theme'] }">
+    <app-messages
+      [messages]="group.messages"
+      [users]="queryService.users"></app-messages>
+  </div>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="sendMessage(inputMessage, inputMessage.value)"
+    class="d-flex flex-row justify-content-center gap-1 align-items-start">
+    <div>
+      <label for="inputPassword2" class="visually-hidden">Password</label>
+      <input
+        #inputMessage
+        type="text"
+        class="form-control bg-secondary-subtle"
+        id="inputPassword2"
+        placeholder="Write your message"
+        formControlName="myMessage"
+        [ngClass]="{ dark: localStorage['theme'] }" />
+      <div
+        *ngIf="myMessage!.invalid && (myMessage!.touched || myMessage!.dirty)"
+        class="validation">
+        <div *ngIf="myMessage!.errors?.['required']">
+          Please enter your message
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="disable">
+      Send
+    </button>
+  </form>
+</div>

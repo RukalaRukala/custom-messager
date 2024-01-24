@@ -1,0 +1,61 @@
+.head {
+  width: 900px;
+}
+
+.chat {
+  border: 2px solid grey;
+}
+
+.btn-outline-secondary {
+  height: 2rem;
+  margin-left: 1rem;
+  border: none;
+  padding: 0;
+}
+
+input {
+  &.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  &.ng-valid {
+    background-color: #b9b8b8;
+    border: 2px solid #01c401;
+  }
+}
+
+.validation {
+  font-size: 10px;
+  color: #f87474;
+}
+
+.bi-arrow-clockwise {
+  font-size: 1.7rem;
+  color: #4a8080;
+}
+
+.bi-x-lg {
+  font-size: 1.7rem;
+  color: red;
+}
+
+.bi-box-arrow-left {
+  font-size: 1.7rem;
+}
+
+.btn:hover {
+  background-color: rgb(134, 134, 134, 0.3);
+}
+
+.form-control {
+  width: 835px;
+}
+
+.dark {
+  background-color: #4a8080;
+  border: none;
+}
+
+.disable {
+  color: #b9b8b8;
+}

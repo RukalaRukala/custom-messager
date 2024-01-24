@@ -1,0 +1,42 @@
+.login-wrap {
+  width: 350px;
+  min-height: 250px;
+  background-color: #e1e1e1;
+}
+
+.form-label {
+  font-size: 12px;
+}
+
+.btn {
+  box-shadow: 2px 0 4px 0 #2F80ED;
+  width: 124px;
+}
+
+input {
+  &.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  &.ng-valid {
+    background-color: #b9b8b8;
+    border: 2px solid #01c401;
+  }
+}
+
+.validation {
+  font-size: 10px;
+  color: #f87474;
+}
+
+.darkTheme {
+  .form-label {
+    color: #b9b8b8;
+  }
+  input {
+    background-color: #4a8080;
+  }
+
+  color: #f7f7f7;
+  background-color: #384f44
+}

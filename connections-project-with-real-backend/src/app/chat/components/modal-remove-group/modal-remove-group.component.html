@@ -1,0 +1,30 @@
+<div [ngClass]="{ dark: localStorage['theme'] }">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">
+      <span *ngIf="!isCompanion">Group deletion</span>
+      <span *ngIf="isCompanion">Companion deletion</span>
+    </h4>
+  </div>
+  <div class="modal-body">
+    <p>
+      <strong
+        >Are you sure you want to delete
+        <span *ngIf="!isCompanion">group </span>
+        <span *ngIf="isCompanion">companion </span>
+        <span class="text-primary">{{ value.name.S }}</span
+        >?</strong
+      >
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="modal.dismiss('cancel click')">
+      Cancel
+    </button>
+    <button type="button" class="btn btn-danger" (click)="delete(value)">
+      Delete
+    </button>
+  </div>
+</div>

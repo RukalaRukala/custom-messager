@@ -1,0 +1,52 @@
+<div class="mh-100 p-2">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <div
+        class="nav-link active"
+        aria-current="page"
+        [ngClass]="{ darkHead: localStorage['theme'] }">
+        PEOPLE
+      </div>
+    </li>
+    <li>
+      <button
+        (click)="getPeople()"
+        type="button"
+        class="btn btn-outline-secondary"
+        placement="top"
+        ngbTooltip="Update users list"
+        [disabled]="localStorage['peopleUpdate']">
+        <i
+          class="bi bi-arrow-clockwise"
+          [ngClass]="{ disable: localStorage['peopleUpdate'] }"
+          role="button"></i>
+      </button>
+    </li>
+    <li>
+      <div *ngIf="localStorage['peopleUpdate']">
+        {{ queryService.timers.peopleTimer }}
+      </div>
+    </li>
+  </ul>
+  <div
+    class="people-wrap overflow-y-scroll"
+    [ngClass]="{ dark: localStorage['theme'] }">
+    <div *ngFor="let user of queryService.users" class="ms-2">
+      <div *ngIf="user.uid !== localStorage['uid']">
+        <button
+          (click)="openConversation(user)"
+          type="button"
+          class="user-but"
+          [ngClass]="{
+            darkGroup: localStorage['theme'],
+            'text-bg-info': user.conversationId
+          }">
+          {{ user.name.S }}
+        </button>
+        <span *ngIf="user.conversationId">
+          &lbrace;...conversation is existed&rbrace;</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div [ngClass]="{ dark: localStorage['theme'] }">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New group</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')">
+      &times;
+    </button>
+  </div>
+  <div class="modal-body">
+    <form
+      [formGroup]="form"
+      class="row g-3"
+      (ngSubmit)="createOwnGroup(nameInput.value)">
+      <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input
+          #nameInput
+          type="text"
+          class="form-control"
+          id="inputPassword2"
+          formControlName="name"
+          placeholder="group name" />
+        <div
+          *ngIf="name!.invalid && (name!.touched || name!.dirty)"
+          class="validation">
+          <div *ngIf="name!.errors?.['required']">Please enter your name</div>
+          <div *ngIf="name!.errors?.['maxlength']">maximum 30 characters</div>
+          <div *ngIf="name!.errors?.['pattern']">
+            only letters, digits and spaces
+          </div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3" [disabled]="disable">
+          Create new group
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

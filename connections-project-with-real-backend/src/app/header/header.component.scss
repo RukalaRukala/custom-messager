@@ -1,0 +1,56 @@
+.header {
+  height: 80px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-outline-primary {
+  border: none;
+}
+
+.btn-outline-primary:hover {
+  background-color: #f7f7f7;
+}
+
+.bi-person-square {
+  font-size: 2rem;
+  color: #0275d8;
+}
+
+.logout {
+  font-size: 2rem;
+  color: #0275d8;
+}
+
+.logout-but {
+  margin-right: 3rem;
+  padding: 0;
+  border-color: #2c2c2c;
+  border-style: none;
+  border-radius: 7px;
+  background-color: white;
+}
+
+.dark {
+  background-color: #2c2c2c;
+}
+
+.dark:hover {
+  background-color: #3f3f3f;
+}
+
+.darkLinks {
+  background-color: #2c2c2c;
+  border: 2px solid #4a8080;
+}
+
+.disable {
+  color: #b9b8b8;
+}
+
+.disabledLink {
+  pointer-events: none;
+  color: #b9b8b8;
+}

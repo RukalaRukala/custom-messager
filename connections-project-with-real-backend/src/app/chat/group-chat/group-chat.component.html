@@ -1,0 +1,64 @@
+<div class="mh-100 p-2">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <div
+        class="nav-link active"
+        aria-current="page"
+        [ngClass]="{ darkHead: localStorage['theme'] }">
+        GROUPS
+      </div>
+    </li>
+    <li>
+      <button
+        (click)="openModal()"
+        type="button"
+        class="btn btn-outline-secondary"
+        placement="top"
+        ngbTooltip="Create new group chat">
+        <i class="bi bi-people-fill" role="button"></i>
+      </button>
+    </li>
+    <li>
+      <button
+        (click)="getGroups()"
+        type="button"
+        class="btn btn-outline-secondary"
+        placement="top"
+        ngbTooltip="Update group list"
+        [disabled]="localStorage['groupUpdate']">
+        <i
+          class="bi bi-arrow-clockwise"
+          [ngClass]="{ disable: localStorage['groupUpdate'] }"
+          role="button"></i>
+      </button>
+    </li>
+    <li>
+      <div *ngIf="localStorage['groupUpdate']">
+        {{ queryService.timers.groupTimer }}
+      </div>
+    </li>
+  </ul>
+  <div
+    class="groups-wrap overflow-y-scroll"
+    [ngClass]="{ dark: localStorage['theme'] }">
+    <div *ngFor="let group of queryService.groups" class="ms-2">
+      <div>
+        <button
+          (click)="openChat(group)"
+          type="button"
+          class="group-but"
+          [ngClass]="{ darkGroup: localStorage['theme'] }">
+          {{ group.name.S }}
+        </button>
+        <button
+          (click)="openDeleteModal(group)"
+          *ngIf="group.createdBy.S === localStorage['uid']"
+          type="button"
+          class="group-but bg-secondary"
+          [ngClass]="{ darkGroup: localStorage['theme'] }">
+          &times;
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

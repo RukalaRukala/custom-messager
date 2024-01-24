@@ -1,0 +1,40 @@
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+.close {
+  font-size: 2rem;
+  border: none;
+  background-color: white;
+  color: #b9b8b8;
+}
+
+.dark {
+  .modal-body,
+  .modal-header,
+  .close {
+    background-color: #2c4b4b;
+    color: #f7f7f7;
+  }
+}
+
+input {
+  &.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  &.ng-valid {
+    background-color: #b9b8b8;
+    border: 2px solid #01c401;
+  }
+}
+
+.validation {
+  font-size: 10px;
+  color: #f87474;
+}

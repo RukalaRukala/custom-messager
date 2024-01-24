@@ -1,0 +1,14 @@
+<div
+  tabindex="0"
+  class="oval"
+  [ngClass]="{ ovalSelected: localStorage['theme'] }"
+  (click)="toggleTheme()"
+  (keydown.pageUp)="toggleTheme()">
+  <i class="bi bi-brightness-high-fill position-absolute"></i>
+  <i class="bi bi-moon-stars-fill position-absolute"></i>
+  <div
+    class="button"
+    [ngClass]="{
+      buttonSelected: localStorage['theme']
+    }"></div>
+</div>

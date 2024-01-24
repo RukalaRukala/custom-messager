@@ -1,0 +1,21 @@
+<div *ngFor="let message of messages" class="d-flex flex-column">
+  <div>
+    <div
+      class="alert w-50"
+      [ngClass]="{
+        'alert-primary': message.authorID.S === me,
+        'float-end': message.authorID.S === me,
+        'alert-warning': message.authorID.S !== me
+      }"
+      role="alert">
+      <div *ngIf="message.authorID.S === me"><strong>Me</strong></div>
+      <div *ngIf="message.authorID.S !== me">
+        <strong>{{ companion || getUserName(message, users) }}</strong>
+      </div>
+      <div class="text-secondary">
+        {{ message.createdAt.S | date: 'MMM d, y, h:mm a' }}
+      </div>
+      <div>{{ message.message.S }}</div>
+    </div>
+  </div>
+</div>

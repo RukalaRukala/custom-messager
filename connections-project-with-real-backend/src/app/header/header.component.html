@@ -1,0 +1,56 @@
+<div class="header d-flex flex-row">
+  <a class="btn btn-primary h-75 ms-1 mt-1" routerLink="/chat" role="button"
+    ><h1>RS-Chat</h1>
+  </a>
+  <div class="d-flex flex-row gap-2 position-absolute end-0">
+    <app-theme-toggle class="my-auto"></app-theme-toggle>
+    <div class="row">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            id="dropdownBasic1"
+            [ngClass]="{ dark: localStorage['theme'] }"
+            ngbDropdownToggle>
+            <i class="bi bi-person-square"></i>
+          </button>
+          <div
+            ngbDropdownMenu
+            aria-labelledby="dropdownBasic1"
+            [ngClass]="{ darkLinks: localStorage['theme'] }">
+            <div ngbDropdownItem [ngClass]="{ dark: localStorage['theme'] }">
+              <a
+                routerLink="/signin"
+                class="a"
+                [ngClass]="{ disabledLink: localStorage['isAuth'] }"
+                >Sign in</a
+              >
+            </div>
+            <div ngbDropdownItem [ngClass]="{ dark: localStorage['theme'] }">
+              <a
+                routerLink="/signup"
+                [ngClass]="{ disabledLink: localStorage['isAuth'] }"
+                >Sign up</a
+              >
+            </div>
+            <div ngbDropdownItem [ngClass]="{ dark: localStorage['theme'] }">
+              <a routerLink="/profile">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      (click)="logout()"
+      [disabled]="!localStorage['isAuth']"
+      class="logout-but"
+      [ngClass]="{ dark: localStorage['theme'] }">
+      <a class="logout">
+        <i
+          [ngClass]="{ disable: !localStorage['isAuth'] }"
+          class="bi bi-box-arrow-right"></i>
+      </a>
+    </button>
+  </div>
+</div>
